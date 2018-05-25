@@ -9,7 +9,7 @@ files for the following languages in advance:
 - javascript
 - java
 
-You can use them derectly, and be free to use the proto
+You can use them directly, and be free to use the proto
 files in `protos` directory to generate to the languages
 you needed.
 
