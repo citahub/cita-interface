@@ -9,6 +9,7 @@ message FullTransaction {
     uint32 index = 4;
 }
 
+
 message Response {
     bytes request_id = 1;
     int64 code = 2;
@@ -37,3 +38,4 @@ message Response {
         bytes balance = 22;
     }
 }
+

@@ -21,3 +21,4 @@ message SignedProposal {
     Proposal proposal = 1;
     bytes signature = 2;
 }
+

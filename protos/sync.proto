@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+
 import "blockchain.proto";
 
 message SyncRequest {
