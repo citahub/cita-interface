@@ -46,6 +46,5 @@ message InnerMessage {
 
         Miscellaneous Miscellaneous = 22;
         MiscellaneousReq MiscellaneousReq = 23;
-        
     }
 }

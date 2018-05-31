@@ -6,6 +6,7 @@ message ActionParams {
     string gas = 3;
     bytes data = 4;
 }
+
 message EnvInfo {
     string number = 1;
     string author = 2;
