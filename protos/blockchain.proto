@@ -7,7 +7,7 @@ enum ProofType {
 }
 
 message Proof {
-    bytes content = 1; 
+    bytes content = 1;
     ProofType type = 2;
 }
 
@@ -43,7 +43,7 @@ message RichStatus {
 
 enum Crypto {
     SECP = 0;
-    SM2 = 1; 
+    SM2 = 1;
 }
 
 message Transaction {
@@ -70,7 +70,6 @@ message SignedTransaction {
 }
 
 // data precompile API
-
 message BlockBody {
     repeated SignedTransaction transactions = 1;
 }
