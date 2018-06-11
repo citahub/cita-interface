@@ -276,13 +276,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
 
               content_ = input.readBytes();
@@ -292,6 +285,13 @@ public final class Blockchain {
               int rawValue = input.readEnum();
 
               type_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -339,6 +339,7 @@ public final class Blockchain {
      * <code>.ProofType type = 2;</code>
      */
     public Blockchain.ProofType getType() {
+      @SuppressWarnings("deprecation")
       Blockchain.ProofType result = Blockchain.ProofType.valueOf(type_);
       return result == null ? Blockchain.ProofType.UNRECOGNIZED : result;
     }
@@ -690,6 +691,7 @@ public final class Blockchain {
        * <code>.ProofType type = 2;</code>
        */
       public Blockchain.ProofType getType() {
+        @SuppressWarnings("deprecation")
         Blockchain.ProofType result = Blockchain.ProofType.valueOf(type_);
         return result == null ? Blockchain.ProofType.UNRECOGNIZED : result;
       }
@@ -873,13 +875,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
 
               prevhash_ = input.readBytes();
@@ -936,6 +931,13 @@ public final class Blockchain {
             case 82: {
 
               proposer_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -1986,13 +1988,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
 
               hash_ = input.readBytes();
@@ -2001,6 +1996,13 @@ public final class Blockchain {
             case 16: {
 
               height_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -2532,13 +2534,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
 
               commonGasLimit_ = input.readUInt64();
@@ -2555,6 +2550,13 @@ public final class Blockchain {
                   SpecificGasLimitDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               specificGasLimit_.getMutableMap().put(
                   specificGasLimit__.getKey(), specificGasLimit__.getValue());
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -3287,13 +3289,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
 
               hash_ = input.readBytes();
@@ -3315,6 +3310,13 @@ public final class Blockchain {
             case 32: {
 
               interval_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -3993,9 +3995,9 @@ public final class Blockchain {
     com.google.protobuf.ByteString getData();
 
     /**
-     * <code>uint64 value = 6;</code>
+     * <code>bytes value = 6;</code>
      */
-    long getValue();
+    com.google.protobuf.ByteString getValue();
 
     /**
      * <code>uint32 chain_id = 7;</code>
@@ -4025,7 +4027,7 @@ public final class Blockchain {
       quota_ = 0L;
       validUntilBlock_ = 0L;
       data_ = com.google.protobuf.ByteString.EMPTY;
-      value_ = 0L;
+      value_ = com.google.protobuf.ByteString.EMPTY;
       chainId_ = 0;
       version_ = 0;
     }
@@ -4054,13 +4056,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -4088,9 +4083,9 @@ public final class Blockchain {
               data_ = input.readBytes();
               break;
             }
-            case 48: {
+            case 50: {
 
-              value_ = input.readUInt64();
+              value_ = input.readBytes();
               break;
             }
             case 56: {
@@ -4101,6 +4096,13 @@ public final class Blockchain {
             case 64: {
 
               version_ = input.readUInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -4223,11 +4225,11 @@ public final class Blockchain {
     }
 
     public static final int VALUE_FIELD_NUMBER = 6;
-    private long value_;
+    private com.google.protobuf.ByteString value_;
     /**
-     * <code>uint64 value = 6;</code>
+     * <code>bytes value = 6;</code>
      */
-    public long getValue() {
+    public com.google.protobuf.ByteString getValue() {
       return value_;
     }
 
@@ -4276,8 +4278,8 @@ public final class Blockchain {
       if (!data_.isEmpty()) {
         output.writeBytes(5, data_);
       }
-      if (value_ != 0L) {
-        output.writeUInt64(6, value_);
+      if (!value_.isEmpty()) {
+        output.writeBytes(6, value_);
       }
       if (chainId_ != 0) {
         output.writeUInt32(7, chainId_);
@@ -4311,9 +4313,9 @@ public final class Blockchain {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, data_);
       }
-      if (value_ != 0L) {
+      if (!value_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(6, value_);
+          .computeBytesSize(6, value_);
       }
       if (chainId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -4349,8 +4351,8 @@ public final class Blockchain {
           == other.getValidUntilBlock());
       result = result && getData()
           .equals(other.getData());
-      result = result && (getValue()
-          == other.getValue());
+      result = result && getValue()
+          .equals(other.getValue());
       result = result && (getChainId()
           == other.getChainId());
       result = result && (getVersion()
@@ -4379,8 +4381,7 @@ public final class Blockchain {
       hash = (37 * hash) + DATA_FIELD_NUMBER;
       hash = (53 * hash) + getData().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getValue());
+      hash = (53 * hash) + getValue().hashCode();
       hash = (37 * hash) + CHAIN_ID_FIELD_NUMBER;
       hash = (53 * hash) + getChainId();
       hash = (37 * hash) + VERSION_FIELD_NUMBER;
@@ -4524,7 +4525,7 @@ public final class Blockchain {
 
         data_ = com.google.protobuf.ByteString.EMPTY;
 
-        value_ = 0L;
+        value_ = com.google.protobuf.ByteString.EMPTY;
 
         chainId_ = 0;
 
@@ -4618,7 +4619,7 @@ public final class Blockchain {
         if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
           setData(other.getData());
         }
-        if (other.getValue() != 0L) {
+        if (other.getValue() != com.google.protobuf.ByteString.EMPTY) {
           setValue(other.getValue());
         }
         if (other.getChainId() != 0) {
@@ -4873,28 +4874,31 @@ public final class Blockchain {
         return this;
       }
 
-      private long value_ ;
+      private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>uint64 value = 6;</code>
+       * <code>bytes value = 6;</code>
        */
-      public long getValue() {
+      public com.google.protobuf.ByteString getValue() {
         return value_;
       }
       /**
-       * <code>uint64 value = 6;</code>
+       * <code>bytes value = 6;</code>
        */
-      public Builder setValue(long value) {
-        
+      public Builder setValue(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint64 value = 6;</code>
+       * <code>bytes value = 6;</code>
        */
       public Builder clearValue() {
         
-        value_ = 0L;
+        value_ = getDefaultInstance().getValue();
         onChanged();
         return this;
       }
@@ -5071,13 +5075,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               Blockchain.Transaction.Builder subBuilder = null;
               if (transaction_ != null) {
@@ -5100,6 +5097,13 @@ public final class Blockchain {
               int rawValue = input.readEnum();
 
               crypto_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -5168,6 +5172,7 @@ public final class Blockchain {
      * <code>.Crypto crypto = 3;</code>
      */
     public Blockchain.Crypto getCrypto() {
+      @SuppressWarnings("deprecation")
       Blockchain.Crypto result = Blockchain.Crypto.valueOf(crypto_);
       return result == null ? Blockchain.Crypto.UNRECOGNIZED : result;
     }
@@ -5666,6 +5671,7 @@ public final class Blockchain {
        * <code>.Crypto crypto = 3;</code>
        */
       public Blockchain.Crypto getCrypto() {
+        @SuppressWarnings("deprecation")
         Blockchain.Crypto result = Blockchain.Crypto.valueOf(crypto_);
         return result == null ? Blockchain.Crypto.UNRECOGNIZED : result;
       }
@@ -5815,13 +5821,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               Blockchain.UnverifiedTransaction.Builder subBuilder = null;
               if (transactionWithSig_ != null) {
@@ -5843,6 +5842,13 @@ public final class Blockchain {
             case 26: {
 
               signer_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -6522,6 +6528,10 @@ public final class Blockchain {
         int index);
   }
   /**
+   * <pre>
+   * data precompile API
+   * </pre>
+   *
    * Protobuf type {@code BlockBody}
    */
   public  static final class BlockBody extends
@@ -6561,13 +6571,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 transactions_ = new java.util.ArrayList<Blockchain.SignedTransaction>();
@@ -6575,6 +6578,13 @@ public final class Blockchain {
               }
               transactions_.add(
                   input.readMessage(Blockchain.SignedTransaction.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -6793,6 +6803,10 @@ public final class Blockchain {
       return builder;
     }
     /**
+     * <pre>
+     * data precompile API
+     * </pre>
+     *
      * Protobuf type {@code BlockBody}
      */
     public static final class Builder extends
@@ -7325,13 +7339,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
 
               version_ = input.readUInt32();
@@ -7361,6 +7368,13 @@ public final class Blockchain {
                 body_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -8158,13 +8172,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               Blockchain.Block.Builder subBuilder = null;
               if (blk_ != null) {
@@ -8189,6 +8196,13 @@ public final class Blockchain {
                 proof_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -8927,13 +8941,6 @@ public final class Blockchain {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
 
               height_ = input.readUInt64();
@@ -8950,6 +8957,13 @@ public final class Blockchain {
                 body_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -9602,7 +9616,7 @@ public final class Blockchain {
       "\010interval\030\004 \001(\004\"\222\001\n\013Transaction\022\n\n\002to\030\001 " +
       "\001(\t\022\r\n\005nonce\030\002 \001(\t\022\r\n\005quota\030\003 \001(\004\022\031\n\021val" +
       "id_until_block\030\004 \001(\004\022\014\n\004data\030\005 \001(\014\022\r\n\005va" +
-      "lue\030\006 \001(\004\022\020\n\010chain_id\030\007 \001(\r\022\017\n\007version\030\010" +
+      "lue\030\006 \001(\014\022\020\n\010chain_id\030\007 \001(\r\022\017\n\007version\030\010" +
       " \001(\r\"f\n\025UnverifiedTransaction\022!\n\013transac" +
       "tion\030\001 \001(\0132\014.Transaction\022\021\n\tsignature\030\002 " +
       "\001(\014\022\027\n\006crypto\030\003 \001(\0162\007.Crypto\"j\n\021SignedTr" +
