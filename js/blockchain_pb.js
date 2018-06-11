@@ -1340,10 +1340,10 @@ proto.RichStatus.prototype.getNodesList = function() {
 /**
  * repeated bytes nodes = 3;
  * This is a type-conversion wrapper around `getNodesList()`
- * @return {!Array.<string>}
+ * @return {!Array<string>}
  */
 proto.RichStatus.prototype.getNodesList_asB64 = function() {
-  return /** @type {!Array.<string>} */ (jspb.Message.bytesListAsB64(
+  return /** @type {!Array<string>} */ (jspb.Message.bytesListAsB64(
       this.getNodesList()));
 };
 
@@ -1353,10 +1353,10 @@ proto.RichStatus.prototype.getNodesList_asB64 = function() {
  * Note that Uint8Array is not supported on all browsers.
  * @see http://caniuse.com/Uint8Array
  * This is a type-conversion wrapper around `getNodesList()`
- * @return {!Array.<!Uint8Array>}
+ * @return {!Array<!Uint8Array>}
  */
 proto.RichStatus.prototype.getNodesList_asU8 = function() {
-  return /** @type {!Array.<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
+  return /** @type {!Array<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
       this.getNodesList()));
 };
 
@@ -1448,7 +1448,7 @@ proto.Transaction.toObject = function(includeInstance, msg) {
     quota: jspb.Message.getFieldWithDefault(msg, 3, 0),
     validUntilBlock: jspb.Message.getFieldWithDefault(msg, 4, 0),
     data: msg.getData_asB64(),
-    value: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    value: msg.getValue_asB64(),
     chainId: jspb.Message.getFieldWithDefault(msg, 7, 0),
     version: jspb.Message.getFieldWithDefault(msg, 8, 0)
   };
@@ -1508,7 +1508,7 @@ proto.Transaction.deserializeBinaryFromReader = function(msg, reader) {
       msg.setData(value);
       break;
     case 6:
-      var value = /** @type {number} */ (reader.readUint64());
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
       msg.setValue(value);
       break;
     case 7:
@@ -1583,9 +1583,9 @@ proto.Transaction.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getValue();
-  if (f !== 0) {
-    writer.writeUint64(
+  f = message.getValue_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
       6,
       f
     );
@@ -1707,17 +1707,41 @@ proto.Transaction.prototype.setData = function(value) {
 
 
 /**
- * optional uint64 value = 6;
- * @return {number}
+ * optional bytes value = 6;
+ * @return {!(string|Uint8Array)}
  */
 proto.Transaction.prototype.getValue = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {number} value */
+/**
+ * optional bytes value = 6;
+ * This is a type-conversion wrapper around `getValue()`
+ * @return {string}
+ */
+proto.Transaction.prototype.getValue_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getValue()));
+};
+
+
+/**
+ * optional bytes value = 6;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getValue()`
+ * @return {!Uint8Array}
+ */
+proto.Transaction.prototype.getValue_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getValue()));
+};
+
+
+/** @param {!(string|Uint8Array)} value */
 proto.Transaction.prototype.setValue = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  jspb.Message.setProto3BytesField(this, 6, value);
 };
 
 
@@ -2388,15 +2412,15 @@ proto.BlockBody.serializeBinaryToWriter = function(message, writer) {
 
 /**
  * repeated SignedTransaction transactions = 1;
- * @return {!Array.<!proto.SignedTransaction>}
+ * @return {!Array<!proto.SignedTransaction>}
  */
 proto.BlockBody.prototype.getTransactionsList = function() {
-  return /** @type{!Array.<!proto.SignedTransaction>} */ (
+  return /** @type{!Array<!proto.SignedTransaction>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.SignedTransaction, 1));
 };
 
 
-/** @param {!Array.<!proto.SignedTransaction>} value */
+/** @param {!Array<!proto.SignedTransaction>} value */
 proto.BlockBody.prototype.setTransactionsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
 };

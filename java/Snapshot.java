@@ -338,13 +338,6 @@ public final class Snapshot {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               int rawValue = input.readEnum();
 
@@ -365,6 +358,13 @@ public final class Snapshot {
               java.lang.String s = input.readStringRequireUtf8();
 
               file_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -403,6 +403,7 @@ public final class Snapshot {
      * <code>.Cmd cmd = 1;</code>
      */
     public Snapshot.Cmd getCmd() {
+      @SuppressWarnings("deprecation")
       Snapshot.Cmd result = Snapshot.Cmd.valueOf(cmd_);
       return result == null ? Snapshot.Cmd.UNRECOGNIZED : result;
     }
@@ -813,6 +814,7 @@ public final class Snapshot {
        * <code>.Cmd cmd = 1;</code>
        */
       public Snapshot.Cmd getCmd() {
+        @SuppressWarnings("deprecation")
         Snapshot.Cmd result = Snapshot.Cmd.valueOf(cmd_);
         return result == null ? Snapshot.Cmd.UNRECOGNIZED : result;
       }
@@ -1060,17 +1062,17 @@ public final class Snapshot {
             case 0:
               done = true;
               break;
+            case 8: {
+              int rawValue = input.readEnum();
+
+              resp_ = rawValue;
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 8: {
-              int rawValue = input.readEnum();
-
-              resp_ = rawValue;
               break;
             }
           }
@@ -1109,6 +1111,7 @@ public final class Snapshot {
      * <code>.Resp resp = 1;</code>
      */
     public Snapshot.Resp getResp() {
+      @SuppressWarnings("deprecation")
       Snapshot.Resp result = Snapshot.Resp.valueOf(resp_);
       return result == null ? Snapshot.Resp.UNRECOGNIZED : result;
     }
@@ -1414,6 +1417,7 @@ public final class Snapshot {
        * <code>.Resp resp = 1;</code>
        */
       public Snapshot.Resp getResp() {
+        @SuppressWarnings("deprecation")
         Snapshot.Resp result = Snapshot.Resp.valueOf(resp_);
         return result == null ? Snapshot.Resp.UNRECOGNIZED : result;
       }
